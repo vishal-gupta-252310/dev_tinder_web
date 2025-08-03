@@ -1,5 +1,10 @@
+// packages
 import React from "react";
 
+/**
+ * Footer component
+ * @returns {JSX.Element}
+ */
 const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-base-300 text-neutral-content items-center p-4 fixed bottom-0">
