@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 // reducers
 import userReducer from "./reducers/userReducer";
+import feedReducer from "./reducers/feedReducer";
 
 /**
  * App store
@@ -11,6 +12,7 @@ import userReducer from "./reducers/userReducer";
 const appStore = configureStore({
   reducer: {
     user: userReducer,
+    feed: feedReducer,
   },
 });
 

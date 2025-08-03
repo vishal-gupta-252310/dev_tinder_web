@@ -11,6 +11,7 @@ import Footer from "./Footer";
 import { get } from "../Services/HttpService";
 import { addUser } from "../Redux/reducers/userReducer";
 import { IsObjectHaveValue } from "../Services/helper";
+import Loading from "./Loading";
 
 /**
  * Body component
@@ -50,7 +51,7 @@ const Body = () => {
 
   return (
     <>
-      {isRequesting && <div>Loading...</div>}
+      {isRequesting && <Loading />}
       {!isRequesting && (
         <div>
           <Navbar />

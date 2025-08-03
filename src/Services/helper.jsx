@@ -23,4 +23,9 @@ export const IsObjectHaveValue = (data) => {
   return true;
 };
 
+export const ArrayHaveValues = (arr) => {
+  if (arr?.length > 0) return true;
+  return false;
+};
+
 export const IsEqual = (value1, value2) => value1 === value2;

@@ -27,7 +27,7 @@ import { addUser } from "../Redux/reducers/userReducer";
 const Login = () => {
   const [form, setForm] = useState({
     email: "vishalgupta@gmail.com",
-    password: "Vishal@123",
+    password: "Vishal@1234",
   });
   const [errors, setErrors] = useState({
     email: "",
@@ -105,7 +105,9 @@ const Login = () => {
       ToastService.success(message);
       dispatch(addUser(data));
       return navigate("/");
-    } catch ({ response: { data: { message = "Internal server error" } = {} } = {} }) {
+    } catch ({
+      response: { data: { message = "Internal server error" } = {} } = {},
+    }) {
       ToastService.error(message);
     } finally {
       setIsRequesting(false);
