@@ -18,6 +18,7 @@ const axiosConfigurations = {
 
 export const get = async (url) => {
   const response = await axios.get(`${url}`, axiosConfigurations);
+  console.log("sample", url);
   console.log(response, "response");
   return response.data;
 };

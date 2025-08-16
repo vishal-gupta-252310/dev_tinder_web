@@ -8,9 +8,9 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 // services
-import { get } from "../Services/HttpService";
+import { get } from "../Services/HttpService.js";
 import { addUser } from "../Redux/reducers/userReducer";
-import { IsObjectHaveValue } from "../Services/helper";
+import { IsObjectHaveValue } from "../Services/helper.js";
 import Loading from "./Loading";
 
 /**
@@ -38,7 +38,7 @@ const Body = () => {
     }) {
       console.error("failed: ", message);
       if (status == 401) {
-        navigate("/login");
+        return navigate("/login");
       }
     } finally {
       setIsRequesting(false);

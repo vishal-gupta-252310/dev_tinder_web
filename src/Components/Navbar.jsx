@@ -3,8 +3,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // services
-import { IsObjectHaveValue } from "../Services/helper";
-import { post } from "../Services/HttpService";
+import { IsObjectHaveValue } from "../Services/helper.js";
+import { post } from "../Services/HttpService.js";
 import ToastService from "../Services/ToastMessage";
 import { removeUser } from "../Redux/reducers/userReducer";
 import { Link, useNavigate } from "react-router-dom";

@@ -13,8 +13,8 @@ import {
 } from "react-icons/fa";
 
 // services
-import { IsEqual, validateEmail, validPassword } from "../Services/helper";
-import { post } from "../Services/HttpService";
+import { IsEqual, validateEmail, validPassword } from "../Services/helper.js";
+import { post } from "../Services/HttpService.js";
 import ToastService from "../Services/ToastMessage";
 
 // redux

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { get } from "../Services/HttpService";
+import { get } from "../Services/HttpService.js";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../Redux/reducers/feedReducer";
 import Loading from "../Components/Loading";
 import UserCard from "../Components/UserCard";
-import { ArrayHaveValues } from "../Services/helper";
+import { ArrayHaveValues } from "../Services/helper.js";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Feed page component
@@ -15,14 +16,16 @@ const Feed = () => {
   const [isLoading, setIsLoading] = useState(false);
   const feedData = useSelector((state) => state.feed);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const getFeedData = async () => {
     try {
       setIsLoading(true);
       const { data = [] } = await get("/users/me/feed");
-      console.log(data);
       dispatch(addFeed(data));
     } catch (error) {
+      console.log(error);
+      navigate("/login");
     } finally {
       setIsLoading(false);
     }
