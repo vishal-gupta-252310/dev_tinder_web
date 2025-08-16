@@ -30,7 +30,6 @@ const Body = () => {
       setIsRequesting(true);
       const { data = {} } = await get("/profile");
       dispatch(addUser(data));
-      return navigate("/");
     } catch ({
       response: {
         data: { message = "Internal server error", status } = {},

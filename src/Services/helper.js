@@ -28,4 +28,9 @@ export const ArrayHaveValues = (arr) => {
   return false;
 };
 
+export const validateUrl = (url) => {
+  const urlRegex = /^(https?:\/\/)?([\w.-]+)\.[a-zA-Z]{2,}(:\d+)?(\/[^\s]*)?$/;
+  return urlRegex.test(url);
+};
+
 export const IsEqual = (value1, value2) => value1 === value2;

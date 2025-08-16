@@ -28,6 +28,11 @@ export const post = async (url, data = {}) => {
   return response.data;
 };
 
+export const patch = async (url, data = {}) => {
+  const response = await axios.patch(`${url}`, data, axiosConfigurations);
+  return response.data;
+};
+
 export const put = async (url, data = {}) => {
   const response = await axios.put(`${url}`, data, axiosConfigurations);
   return response.data;
