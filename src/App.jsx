@@ -8,6 +8,7 @@ import appStore from "./Redux";
 import Feed from "./Pages/Feed";
 import Connections from "./Pages/Connections";
 import Requests from "./Pages/Requests";
+import Signup from "./Pages/Signup";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/requests" element={<Requests />} />
             </Route>
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer position="bottom-left" autoClose={2000} />

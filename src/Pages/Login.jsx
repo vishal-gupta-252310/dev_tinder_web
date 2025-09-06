@@ -1,7 +1,7 @@
 // packages
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // icons
 import {
@@ -202,9 +202,12 @@ const Login = () => {
           {/* Sign Up Link */}
           <div className="text-center mt-6">
             <span className="text-sm">Don't have an account? </span>
-            <a href="#" className="link link-primary text-sm font-medium">
+            <Link
+              to="/signup"
+              className="link link-primary text-sm font-medium"
+            >
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
       </div>
