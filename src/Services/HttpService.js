@@ -40,3 +40,11 @@ export const del = async (url) => {
   const response = await axios.delete(`${url}`, axiosConfigurations);
   return response.data;
 };
+
+export const postWithFile = async (url, data = {}) => {
+  const uploadConfig = axiosConfigurations;
+  uploadConfig.headers["Content-Type"] = "multipart/form-data";
+
+  const response = await axios.post(`${url}`, data, uploadConfig);
+  return response.data;
+};

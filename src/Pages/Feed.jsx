@@ -55,10 +55,11 @@ const Feed = () => {
   return (
     <>
       {isLoading && <Loading />}
-      <div className="flex mt-40 overflow-auto">
-        {!isLoading &&
-          ArrayHaveValues &&
-          feedData?.map((item) => (
+      {!isLoading &&
+          ArrayHaveValues(feedData) &&
+      <div className="flex mt-40 overflow-auto feed-container">
+        
+          {feedData?.map((item) => (
             <UserCard
               key={item._id}
               userData={item}
@@ -78,6 +79,7 @@ const Feed = () => {
             />
           ))}
       </div>
+      }
       {!isLoading && !ArrayHaveValues(feedData) && (
         <EmptyState
           title="No Feed Found"

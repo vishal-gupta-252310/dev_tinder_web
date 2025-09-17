@@ -26,8 +26,8 @@ import { addUser } from "../Redux/reducers/userReducer";
  */
 const Login = () => {
   const [form, setForm] = useState({
-    email: "vishalgupta@gmail.com",
-    password: "Vishal@1234",
+    email: "",
+    password: "",
   });
   const [errors, setErrors] = useState({
     email: "",

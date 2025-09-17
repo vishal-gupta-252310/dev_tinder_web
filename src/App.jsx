@@ -10,6 +10,10 @@ import Connections from "./Pages/Connections";
 import Requests from "./Pages/Requests";
 import Signup from "./Pages/Signup";
 
+// styles
+import "./styles/main.scss";
+
+
 function App() {
   return (
     <>
