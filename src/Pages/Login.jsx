@@ -19,6 +19,10 @@ import ToastService from "../Services/ToastMessage";
 
 // redux
 import { addUser } from "../Redux/reducers/userReducer";
+import Input from "../Components/Input.jsx";
+import PasswordInput from "../Components/PasswordInput.jsx";
+import Button from "../Components/Button.jsx";
+import Divider from "../Components/Divider.jsx";
 
 /**
  * Login page component
@@ -94,7 +98,8 @@ const Login = () => {
   /**
    * Handles the login process
    */
-  const handleLogin = async () => {
+  const handleLogin = async (event) => {
+    event.preventDefault();
     if (isRequesting) return;
     if (!validateFields("email", form.email)) return;
     if (!validateFields("password", form.password)) return;
@@ -120,72 +125,43 @@ const Login = () => {
           <h2 className="card-title text-2xl font-bold text-center mb-6 flex justify-center">
             Welcome Back
           </h2>
-
-          {/* Email Input */}
-          <div className="form-control">
-            <label className="label mb-2">
-              <span className="label-text">Email</span>
-            </label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="input input-bordered w-full"
-              value={form.email}
-              disabled={isRequesting}
-              required
-              name="email"
-              onChange={(e) => handleChange(e.target.name, e.target.value)}
-            />
-            {errors.email && (
-              <p className="text-red-500 mt-3">{errors.email}</p>
-            )}
-          </div>
-
-          {/* Password Input */}
-          <div className="form-control mt-4">
-            <div className="flex justify-between items-center mb-2">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <a href="#" className="label-text-alt link link-hover text-sm">
-                Forgot password?
-              </a>
-            </div>
-            <div className="relative w-full">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="••••••••"
-                disabled={isRequesting}
-                className="input input-bordered w-full pr-12"
-                value={form.password}
+          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+            <form onSubmit={(e) => handleLogin(e)}>
+              {/* Email Input */}
+              <Input
+                value={form.email}
+                errors={errors}
+                handleChange={handleChange}
+                label="Email"
+                name="email"
+                type="email"
                 required
-                onChange={(e) => handleChange(e.target.name, e.target.value)}
+                disabled={isRequesting}
               />
-              <span
-                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
-                onClick={() => setShowPassword((prev) => !prev)}
-              >
-                {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
-              </span>
-            </div>
-            {errors.password && (
-              <p className="text-red-500 mt-3">{errors.password}</p>
-            )}
-          </div>
 
-          {/* Remember Me & Login Button */}
-          <button
-            className="btn btn-primary mt-4"
-            onClick={handleLogin}
-            disabled={isRequesting}
-          >
-            Sign In
-          </button>
+              <PasswordInput
+                className="mt-4"
+                label="Password"
+                forgetPasswordLink="/forgot-password"
+                forgetPasswordLabel="Forgot Password?"
+                name="password"
+                errors={errors}
+                isRequesting={isRequesting}
+                handleChange={handleChange}
+              />
+
+              {/* Remember Me & Login Button */}
+              <Button
+                isRequesting={isRequesting}
+                type="submit"
+                className="mt-6"
+                label={isRequesting ? "Logging in..." : "Login"}
+              />
+            </form>
+          </fieldset>
 
           {/* Divider */}
-          <div className="divider my-6">OR CONTINUE WITH</div>
-
+          <Divider label="OR CONTINUE WITH" className="mt-6" />
           {/* Social Login Buttons */}
           <div className="flex justify-center gap-4">
             <button className="btn btn-outline btn-circle">
@@ -198,7 +174,6 @@ const Login = () => {
               <FaFacebook className="text-xl" />
             </button>
           </div>
-
           {/* Sign Up Link */}
           <div className="text-center mt-6">
             <span className="text-sm">Don't have an account? </span>

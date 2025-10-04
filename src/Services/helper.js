@@ -34,3 +34,11 @@ export const validateUrl = (url) => {
 };
 
 export const IsEqual = (value1, value2) => value1 === value2;
+
+export const HaveValue = (value) => {
+  if (value === null || value === undefined) return false;
+  if (typeof value === "string" && value.trim() === "") return false;
+  if (Array.isArray(value) && value.length === 0) return false;
+  if (IsObject(value) && Object.keys(value).length === 0) return false;
+  return true;
+};
