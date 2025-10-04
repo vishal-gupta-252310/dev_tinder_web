@@ -135,6 +135,7 @@ const Login = () => {
                 label="Email"
                 name="email"
                 type="email"
+                placeholder="Enter your email"
                 required
                 disabled={isRequesting}
               />
